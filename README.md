@@ -24,6 +24,7 @@ _*Depending on your purpose and number of genomes, I can recommend running Prokk
 - The exploratory data analysis requires a csv or tsv file in the following format:
   
   |  Isolate  | Pathogen 1 | Pathogen 2 | ... | Pathogen N |  Phylum  |  Genus  |  Strain  |
+  | --------- | ---------- | ---------- | --- | ---------- | -------- | ------- | -------- | 
   | Isolate 1 |     111    |     101    | ... |    000     | Phylum 1 | Genus 1 | Strain 1 |
   |    ...    |     ...    |     ...    | ... |    ...     |    ...   |   ...   |    ...   |
   | Isolate N |     011    |     111    | ... |    111     | Phylum N | Genus N | Strain N |
