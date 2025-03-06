@@ -37,4 +37,5 @@ _*Depending on your purpose and number of genomes, I can recommend running Prokk
 
 ### Exploratory data analysis - part 2:
 1) Constructing a phylogenetic tree from assembly 16S sequences
+
 To be continued...
