@@ -29,7 +29,7 @@ _*Depending on your purpose and number of genomes, I can recommend running Prokk
   |    ...    |     ...    |     ...    | ... |    ...     |    ...   |   ...   |    ...   |
   | Isolate N |     011    |     111    | ... |    111     | Phylum N | Genus N | Strain N |
 
-- Where the cells between The isolates and pathogens are triplicate bioactivity screens from co-cultures with pathogens.
+- Where the cells between the isolates and pathogens are results from triplicate bioactivity screens from co-cultures with pathogens.
 - "1" is a positive hit, indicating bioactivity, and "0" is a negative hit, indicating no bioactivity.
 - "Phylum", "Genus" and "Strain" are obtained from the GTDB-Tk results.
 
