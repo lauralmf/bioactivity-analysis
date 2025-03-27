@@ -1,1 +1,0 @@
-This folder contains fasta files from sequenced isolate genomes.
