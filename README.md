@@ -10,13 +10,13 @@ This program includes several steps, which can be run individually or in a compl
 
 ### Preprocessing scripts:
 - The preprocessing part takes an assembly folder with whole-genome sequenced bacterial genomes as input:
-1) Running antiSMASH in the command line
+1) Running [antiSMASH]([url](https://docs.antismash.secondarymetabolites.org/install/)) in the command line
 2) Processing antiSMASH outputs
-3) Running BiG-SCAPE
-4) Running Prokka and bakta*
-5) Running GTDB-Tk for taxonomic classification
-6) Extracting 16S sequences from Prokka and bakta results
-7) Constructing a multiple sequence alignment (MSA) from 16S sequences
+3) Running [BiG-SCAPE]([url](https://github.com/medema-group/BiG-SCAPE/wiki/))
+4) Running [Prokka]([url](https://github.com/tseemann/prokka)) and [bakta]([url](https://github.com/oschwengers/bakta))* (for whole-genome annotations)
+5) Running [GTDB-Tk]([url](https://github.com/Ecogenomics/GTDBTk)) for taxonomic classification
+6) Running [BUSCO]([url](https://busco.ezlab.org/busco_userguide.html#installation-with-conda)) for extracting BUSCO genes
+7) Constructing a multiple sequence alignment (MSA) from BUSCO genes using [BUSCO_phylogenomics]([url](https://github.com/jamiemcg/BUSCO_phylogenomics))
 
 _*Depending on your purpose and number of genomes, I can recommend running Prokka instead of bakta to save time._
 
