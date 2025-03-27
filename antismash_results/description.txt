@@ -1,1 +1,0 @@
-This folder contains results from antiSMASH runs on the genomes in the assembly_files folder.
