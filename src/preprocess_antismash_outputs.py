@@ -6,7 +6,7 @@ antismash_results = "../antismash_results"
 
 """ Clean up folder names from antiSMASH raw output: remove '_assembly' """
 for assembly in listdir(antismash_results):
-    if assembly == ".DS_Store":
+    if assembly == ".DS_Store": # Skip system files (MacOS thing)
         continue
     if assembly.endswith("_assembly"):
         new_name = assembly.replace("_assembly", "")
@@ -93,7 +93,7 @@ def process_all_folders(antismash_results_path: str):
     all_dfs = []  # List to collect all individual DataFrames
 
     for assembly in listdir(antismash_results_path):
-        if assembly == ".DS_Store":  # Skip system files (MacOS thing)
+        if assembly == ".DS_Store":  
             continue
         
         assembly_path = f"{antismash_results_path}/{assembly}"
