@@ -112,3 +112,52 @@ def process_all_folders(antismash_results_path: str):
 
 # Run the processing
 merged_annotations = process_all_folders(antismash_results)
+
+""" Extract more specific BGC annotations from antiSMASH index.html output file """
+def extract_bgc_annos_from_html(assembly_path: str, assembly: str):
+    data = {"SEQID": [], "Product": []}
+
+    html_path = f"{assembly_path}/index.html"
+    with open (html_path) as fp:
+        soup = BeautifulSoup(fp, 'html.parser')
+
+    unique_links = set()
+
+    for td in soup.find_all("td"):
+        a_tags = td.find_all("a", class_="external-link")
+
+        if len(a_tags) == 1 and a_tags[0].get("target") == "_blank":
+            text = a_tags[0].text.strip()
+            if text not in unique_links:
+                unique_links.add(text)
+    
+    if unique_links: 
+        for i in unique_links:
+            data["Product"].append(i)
+        data["SEQID"] = [assembly] * len(unique_links)
+
+    else:
+        data["Product"].append("None predicted")
+        data["SEQID"].append(assembly)
+    
+    return data
+
+def extract_annotations_from_all_html(results_folder_path):
+    master = []
+    for assembly in listdir(results_folder_path):
+        if assembly in [".DS_Store", "all_bgc_annotations_from_region_gbk.csv"]:
+            continue
+        
+        result = extract_bgc_annos_from_html(assembly_path=f"{results_folder_path}/{assembly}", assembly=assembly)
+        master.append(result)
+
+    master_df = pd.DataFrame(master)
+    master_df = master_df.explode(["SEQID", "Product"])
+
+    pd.DataFrame.to_csv(master_df, "../antismash_results/all_bgc_annotations_from_html.csv", index=False)
+    
+    return master_df
+
+antismash_results = "../antismash_results"
+
+extract_annotations_from_all_html(antismash_results)
