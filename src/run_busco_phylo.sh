@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make output folder and change directory to output folder
+mkdir -p busco_phylo_results && cd busco_phylo_results
+
 # Command for running BUSCO_phylogentics from command line
 BUSCO_phylogenetics.py -i ../busco_results -o ../busco_phylo_results -t 8
 
