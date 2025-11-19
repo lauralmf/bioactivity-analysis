@@ -29,16 +29,18 @@ Before running the various bioinformatic pipelines that this program includes, I
 
 >[If you decided to run CheckM2] To filter for low-quality genomes, the CheckM2 results are added to the raw bioactivity data by left-joining on the "SEQID" column (the MAG identifiers) before filtering. The columns from CheckM2 can now be removed from the dataframe.
 
-The preprocessing steps involves running different bioinformatic pipelines. For automation, I set up a script that does this on multiple genomes at onces. The input is an assembly folder with MAGs as input:
+The preprocessing steps involves running different bioinformatic pipelines. For automation, I set up a script that does this on multiple genomes at onces. For each of the preprocessing steps, the input is an assembly folder ```assembly_files``` that contains all MAGs in fasta format:
 1) Running [antiSMASH]([url](https://docs.antismash.secondarymetabolites.org/install/)) in the command line
 2) Processing antiSMASH outputs
-3) Running [BiG-SCAPE]([url](https://github.com/medema-group/BiG-SCAPE/wiki/))
-4) Running [Prokka]([url](https://github.com/tseemann/prokka)) and [bakta]([url](https://github.com/oschwengers/bakta))* (for whole-genome annotations)
+3) [Optional] Running [BiG-SCAPE]([url](https://github.com/medema-group/BiG-SCAPE/wiki/))
+4) Running [Prokka]([url](https://github.com/tseemann/prokka)) or [bakta]([url](https://github.com/oschwengers/bakta))* (for whole-genome annotations)*
 5) Running [GTDB-Tk]([url](https://github.com/Ecogenomics/GTDBTk)) for taxonomic classification
 6) Running [BUSCO]([url](https://busco.ezlab.org/busco_userguide.html#installation-with-conda)) for extracting BUSCO genes
 7) Constructing a multiple sequence alignment (MSA) from BUSCO genes using [BUSCO_phylogenomics]([url](https://github.com/jamiemcg/BUSCO_phylogenomics))
 
 _*Depending on your purpose and number of genomes, I can recommend running Prokka instead of bakta to save time, but personally, I prefer bakta._
+
+The ```run_``` shell scripts include bash code to run all pipelines. The scripts can be modified to add more flags, e.g., for antiSMASH.
 
 ### Data wrangling
 >[If you decided to run CheckM2] To filter for low-quality genomes, the CheckM2 results are added to the raw bioactivity data by left-joining on the "SEQID" column (the MAG identifiers) before filtering. The columns from CheckM2 can now be removed from the dataframe.
