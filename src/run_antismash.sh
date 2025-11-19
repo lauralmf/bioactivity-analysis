@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Do this first:
+mkdir antismash_results
+cd antismash_results
+
 for file in ../assembly_files/*.fasta; do
     base=$(basename "$file" .fasta)  # Extract filename without extension
     antismash "$file" --output-dir "../antismash_results/$base" \
@@ -7,3 +11,5 @@ for file in ../assembly_files/*.fasta; do
         --genefinding-tool prodigal-m --asf \
         --cc-mibig --cb-knownclusters --pfam2go --rre --tfbs --cpu 16
 done
+
+# For each iteration, an antiSMASH output folder is made for a MAG and added to the folder, antismash_results.
