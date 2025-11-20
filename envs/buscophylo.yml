@@ -1,0 +1,12 @@
+name: bphylo
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - busco_phylogenomics
+  - muscle
+  - fasttree
+  - pip
+  - pip:
+    - amas
