@@ -82,7 +82,7 @@ rule run_busco_phylo: # Before running, remember to install BUSCO_phylogenomics 
         aln = "./busco_phylo_results/supermatrix/alignments"
         aln_trimmed = "./busco_phylo_results/supermatrix/alignments_trimmed"
     conda:
-        pass
+        "./envs/bphylo.yml"
 
     shell:
         """
