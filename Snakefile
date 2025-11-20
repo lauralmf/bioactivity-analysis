@@ -72,7 +72,7 @@ rule run_busco: # Before running, remember to install BUSCO correctly.
         for file in {input}/*.fasta; do busco -i "$file" -m genome --lineage_dataset bacteria_odb12 -c 8 -o {output}; done
         """
     
-rule run_busco_phylo:
+rule run_busco_phylo: # Before running, remember to install BUSCO_phylogenomics correctly.
     input:
         busco_results = "./busco_results"
         assemblies = "./assembly_files"
